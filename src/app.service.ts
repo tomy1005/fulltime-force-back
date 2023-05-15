@@ -10,7 +10,7 @@ export class AppService {
 
   async gitCommitsFront(): Promise<any> {
     const { data } = await firstValueFrom(
-      this.httpService.get<any[]>('https://api.github.com/repos/tomy1005/fulltime-force-front/commits', { headers: { 'authorization': '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'} }).pipe(
+      this.httpService.get<any[]>('https://api.github.com/repos/tomy1005/fulltime-force-front/commits', { headers: { 'authorization': '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'} }).pipe(
         catchError((error: AxiosError) => {
           throw 'An error happened!' + error;
         }),
@@ -21,7 +21,7 @@ export class AppService {
 
   async gitCommitsBack(): Promise<any> {
     const { data } = await firstValueFrom(
-      this.httpService.get<any[]>('https://api.github.com/repos/tomy1005/fulltime-force-back/commits', { headers: { 'authorization': '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' } }).pipe(
+      this.httpService.get<any[]>('https://api.github.com/repos/tomy1005/fulltime-force-back/commits', { headers: { 'authorization': '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' } }).pipe(
         catchError((error: AxiosError) => {
           throw 'An error happened!' + error;
         }),
