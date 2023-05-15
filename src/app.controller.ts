@@ -5,8 +5,13 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('history')
-  getGitHistory() {
-    return this.appService.gitHistory();
+  @Get('commits-front')
+  getGitCommitsFront() {
+    return this.appService.gitCommitsFront();
+  }
+
+  @Get('commits-back')
+  getGitCommitsBack() {
+    return this.appService.gitCommitsBack();
   }
 }

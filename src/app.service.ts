@@ -8,17 +8,25 @@ export class AppService {
 
   constructor(private readonly httpService: HttpService) { }
 
-  async gitHistory(): Promise<any> {
+  async gitCommitsFront(): Promise<any> {
     const { data } = await firstValueFrom(
-      this.httpService.get<any[]>('https://api.github.com/repos/tomy1005/fulltime-force-front/commits', { headers: { 'auth': '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' } }).pipe(
+      this.httpService.get<any[]>('https://api.github.com/repos/tomy1005/fulltime-force-front/commits', { headers: { 'authorization': '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' } }).pipe(
         catchError((error: AxiosError) => {
-          throw 'An error happened!';
+          throw 'An error happened!' + error;
         }),
       ),
     );
     return data;
   }
-  getHello(): string {
-    return 'Hello World!';
+
+  async gitCommitsBack(): Promise<any> {
+    const { data } = await firstValueFrom(
+      this.httpService.get<any[]>('https://api.github.com/repos/tomy1005/fulltime-force-back/commits', { headers: { 'authorization': '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' } }).pipe(
+        catchError((error: AxiosError) => {
+          throw 'An error happened!' + error;
+        }),
+      ),
+    );
+    return data;
   }
 }
